@@ -17,9 +17,9 @@ namespace graph
 
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddScoped<IJobGraph>(sp => new JobGraph("https://graph.microsoft.com/v1.0", new NewtonsoftJsonSerializer()));
             builder.Services.AddScoped<ICmsGraph>(sp => new CmsGraph("https://countries.trevorblades.com", new NewtonsoftJsonSerializer()));
-            
+            builder.Services.AddScoped<IJobGraph>(sp => new JobGraph("https://swapi.apis.guru", new NewtonsoftJsonSerializer()));
+
             await builder.Build().RunAsync();
         }
     }
@@ -76,4 +76,3 @@ namespace graph
     public interface ICmsGraph : GraphQL.Client.Abstractions.IGraphQLClient
     {}
 }
-

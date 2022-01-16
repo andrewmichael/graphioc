@@ -1,6 +1,20 @@
 @page "/GraphTest"
 <h3>GraphTest</h3>
 
+<div>
+    @if(_languageType == null || _personType == null) 
+    {
+        <div>Loading...</div>
+    }
+    else
+    {
+        <div>
+            <p>Language @_languageType.Name</p>
+            <p>Person @_personType.Name</p>
+        </div>
+    }
+</div>
+
 @code {
     
 }
